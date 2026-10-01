@@ -1,0 +1,26 @@
+# Composer dependencies
+/vendor/
+
+# Drupal Core + contrib managed by Composer
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+
+# Runtime/uploaded files
+/web/sites/*/files/
+
+# Environment settings
+/web/sites/*/settings.local.php
+
+# Environment files
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
