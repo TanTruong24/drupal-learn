@@ -1,0 +1,11 @@
+services:
+  logger.channel.learning_property:
+    parent: logger.channel_base
+    arguments: ['learning_property']
+
+  learning_property.manager:
+    class: Drupal\learning_property\Service\PropertyManager
+    arguments:
+      - '@entity_type.manager'
+      - '@cache.default'
+      - '@logger.channel.learning_property'

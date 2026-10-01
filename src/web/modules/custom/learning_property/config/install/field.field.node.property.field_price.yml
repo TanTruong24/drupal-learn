@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.property
+id: node.property.field_price
+field_name: field_price
+entity_type: node
+bundle: property
+label: Price
+description: 'Enter the price as a decimal number.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

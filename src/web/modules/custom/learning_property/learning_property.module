@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Theme integration for the Learning Property module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function learning_property_theme(): array {
+  return [
+    'learning_property_list' => [
+      'variables' => [
+        'properties' => [],
+        'empty_message' => NULL,
+      ],
+    ],
+    'learning_property_detail' => [
+      'variables' => [
+        'property' => NULL,
+        'booking_url' => NULL,
+      ],
+    ],
+  ];
+}

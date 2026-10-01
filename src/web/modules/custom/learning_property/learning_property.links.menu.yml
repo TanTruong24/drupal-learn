@@ -1,0 +1,6 @@
+learning_property.list:
+  title: 'Properties'
+  description: 'Browse properties.'
+  route_name: learning_property.list
+  menu_name: main
+  weight: 10

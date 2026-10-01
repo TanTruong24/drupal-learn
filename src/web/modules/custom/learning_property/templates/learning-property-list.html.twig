@@ -1,0 +1,14 @@
+{% if properties %}
+  <div class="learning-property-list">
+    {% for property in properties %}
+      <article class="learning-property-list__item">
+        <h2><a href="{{ path('learning_property.detail', {'node': property.id}) }}">{{ property.label }}</a></h2>
+        <div>{{ property.field_description.value|default('')|striptags|slice(0, 240) }}</div>
+        <p><strong>{{ 'Price'|t }}:</strong> {{ property.field_price.value }}</p>
+        <p><strong>{{ 'Address'|t }}:</strong> {{ property.field_address.value }}</p>
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>{{ empty_message }}</p>
+{% endif %}

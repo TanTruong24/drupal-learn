@@ -1,0 +1,9 @@
+name: Learning Property
+type: module
+description: Provides property storage, listings, detail pages, and an available-properties block.
+package: Learning
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - drupal:node
+  - drupal:text
+  - drupal:options

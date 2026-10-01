@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Booking
+type: booking
+description: 'A property booking created by the custom booking form.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

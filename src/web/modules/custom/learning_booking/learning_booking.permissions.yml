@@ -1,0 +1,3 @@
+create property booking:
+  title: 'Create property bookings'
+  description: 'Submit the custom property booking form.'
