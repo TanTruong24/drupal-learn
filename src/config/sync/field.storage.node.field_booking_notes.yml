@@ -1,0 +1,21 @@
+uuid: 1835ce46-c2d7-46f9-ba90-175c2ba4dde6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+_core:
+  default_config_hash: WEHX0z-TQCGLQl4oMgJ4u85UDVioWfT-TT6TIWB5u5k
+id: node.field_booking_notes
+field_name: field_booking_notes
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

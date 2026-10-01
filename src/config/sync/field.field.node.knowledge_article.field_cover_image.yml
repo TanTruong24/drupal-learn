@@ -1,0 +1,38 @@
+uuid: 8d66daaf-e34a-4efc-9106-f2eec3a7c6e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cover_image
+    - node.type.knowledge_article
+  module:
+    - image
+id: node.knowledge_article.field_cover_image
+field_name: field_cover_image
+entity_type: node
+bundle: knowledge_article
+label: 'Cover Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

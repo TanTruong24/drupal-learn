@@ -1,0 +1,25 @@
+uuid: 6f5a50c4-276f-4c12-b903-4acff6942b03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_available
+    - node.type.property
+_core:
+  default_config_hash: UPT9whQ7j8thogUU1kwDrfLjn8dIqPKwBcMgdhS-7CI
+id: node.property.field_available
+field_name: field_available
+entity_type: node
+bundle: property
+label: Available
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

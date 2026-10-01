@@ -1,0 +1,8 @@
+uuid: 30a43cd6-124c-42dd-af91-beb8cb3a4d86
+langcode: en
+status: true
+dependencies: {  }
+id: help_banner
+label: 'Help Banner'
+revision: false
+description: 'Banner for help center'

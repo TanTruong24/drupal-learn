@@ -1,0 +1,21 @@
+uuid: 4afba577-10a8-41bc-9050-a5fb19ca3f45
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: p8RlL0N0LZC6J3wJkg467OAmqVcLuprUEU-CDJ7tMdg
+id: node.field_booking_property
+field_name: field_booking_property
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

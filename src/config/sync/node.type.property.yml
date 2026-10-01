@@ -1,0 +1,13 @@
+uuid: 83d1c245-375c-4a6a-9267-580246a01db5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sxagO5j3d3og_5qhIj4F3Vuu1rsyzaa2v4A9OZNHxV8
+name: Property
+type: property
+description: 'A property that can be listed and booked.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

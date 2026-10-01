@@ -1,0 +1,21 @@
+uuid: a9e0fea0-827f-4873-8e1e-c1b28cc4f57e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.property
+_core:
+  default_config_hash: aO2EwJbug9PuUVCmURnWhSozwZjOKoKXfqHsnjz9rDA
+id: node.property.field_address
+field_name: field_address
+entity_type: node
+bundle: property
+label: Address
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

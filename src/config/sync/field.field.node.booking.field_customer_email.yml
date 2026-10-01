@@ -1,0 +1,21 @@
+uuid: 0a22e747-b026-42be-99ab-8bf245110fd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_email
+    - node.type.booking
+_core:
+  default_config_hash: t52vGGu76SJMOWOJUr-TO2MiDjwO2MhVCeW3xWWKjNk
+id: node.booking.field_customer_email
+field_name: field_customer_email
+entity_type: node
+bundle: booking
+label: 'Customer email'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
