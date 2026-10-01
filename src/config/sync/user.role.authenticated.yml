@@ -1,0 +1,24 @@
+uuid: 5990845a-ab85-4bf2-aee9-6aa625cc2000
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - file
+    - filter
+    - learning_booking
+    - learning_property
+    - system
+_core:
+  default_config_hash: wkW7P5A53YhGmsgamrmTbfwpZrqdnPYiJdoAZQtdmJg
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access property pages'
+  - 'create property booking'
+  - 'delete own files'
+  - 'use text format basic_html'

@@ -1,0 +1,18 @@
+uuid: 0cb7aefc-8d26-493b-bd8f-b7e0bca4e062
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Knowledge Article'
+type: knowledge_article
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

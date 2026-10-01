@@ -1,0 +1,13 @@
+uuid: 06cea47b-654c-4b91-b936-25b692e95502
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Hh2mXQSR_qHJLo7gPJBv8S9DwLaOHrqaP6-88lZg77w
+name: Booking
+type: booking
+description: 'A property booking created by the custom booking form.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

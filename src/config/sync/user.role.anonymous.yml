@@ -1,0 +1,20 @@
+uuid: 18d2bde4-4b09-4ac2-8004-cac8f9c40b7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - filter
+    - learning_property
+    - system
+_core:
+  default_config_hash: Tus1ZTNXKIOnrennR1hnTbc7wUPBXHTUm5UdCpEhJSk
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access property pages'
+  - 'use text format restricted_html'

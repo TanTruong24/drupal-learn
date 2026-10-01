@@ -1,0 +1,29 @@
+uuid: 563e8fec-7e0e-4d68-a256-360e22f05c98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_booking_property
+    - node.type.booking
+    - node.type.property
+_core:
+  default_config_hash: '-DnRaQFFCdhGyhDfp9_8kCOYEOLVcInHmJ19QgzVQT4'
+id: node.booking.field_booking_property
+field_name: field_booking_property
+entity_type: node
+bundle: booking
+label: Property
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      property: property
+    sort:
+      field: _none
+      direction: ASC
+field_type: entity_reference

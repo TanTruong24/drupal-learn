@@ -1,0 +1,29 @@
+uuid: 0559065a-d809-40da-b3c4-c5d8529b4a63
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.knowledge_center
+  module:
+    - system
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__knowledge_center_block_1
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'views_block:knowledge_center-block_1'
+settings:
+  id: 'views_block:knowledge_center-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /help-center

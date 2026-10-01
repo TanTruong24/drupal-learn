@@ -1,0 +1,28 @@
+uuid: 7437cfae-3eda-4f9b-b26a-a64bd137f17d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:help_banner:d7ece5a9-6e72-4284-accc-25e11f705cd9'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: olivero_needhelpwithrenting
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'block_content:d7ece5a9-6e72-4284-accc-25e11f705cd9'
+settings:
+  id: 'block_content:d7ece5a9-6e72-4284-accc-25e11f705cd9'
+  label: 'Need help with renting?'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /help-center

@@ -1,0 +1,23 @@
+uuid: bd93a47f-88d4-4929-8b08-06d9157a4408
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reading_time
+    - node.type.knowledge_article
+id: node.knowledge_article.field_reading_time
+field_name: field_reading_time
+entity_type: node
+bundle: knowledge_article
+label: 'Reading Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

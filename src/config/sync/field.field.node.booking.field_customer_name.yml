@@ -1,0 +1,21 @@
+uuid: ca5f1d2c-2eca-4a27-b312-fdfad1010412
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_name
+    - node.type.booking
+_core:
+  default_config_hash: H-mdDGmUtVs1eCIRwyTcEAgso6tXS8-BvlrNHbtZLJc
+id: node.booking.field_customer_name
+field_name: field_customer_name
+entity_type: node
+bundle: booking
+label: 'Customer name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
