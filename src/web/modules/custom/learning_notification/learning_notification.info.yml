@@ -1,0 +1,8 @@
+name: Learning Notification
+type: module
+description: Logs booking events and Property entity inserts.
+package: Learning
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - drupal:node
+  - learning_booking:learning_booking

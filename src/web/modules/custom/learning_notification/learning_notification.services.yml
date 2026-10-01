@@ -1,0 +1,11 @@
+services:
+  logger.channel.learning_notification:
+    parent: logger.channel_base
+    arguments: ['learning_notification']
+
+  learning_notification.booking_created_subscriber:
+    class: Drupal\learning_notification\EventSubscriber\BookingCreatedSubscriber
+    arguments:
+      - '@logger.channel.learning_notification'
+    tags:
+      - { name: event_subscriber }

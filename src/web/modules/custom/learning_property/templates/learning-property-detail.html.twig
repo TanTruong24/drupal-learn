@@ -1,0 +1,16 @@
+<article class="learning-property-detail">
+  {% if property.field_description.value %}
+    <div>{{ property.field_description.value|nl2br }}</div>
+  {% endif %}
+  <dl>
+    <dt>{{ 'Price'|t }}</dt>
+    <dd>{{ property.field_price.value }}</dd>
+    <dt>{{ 'Address'|t }}</dt>
+    <dd>{{ property.field_address.value }}</dd>
+    <dt>{{ 'Available'|t }}</dt>
+    <dd>{{ property.field_available.value ? 'Yes'|t : 'No'|t }}</dd>
+  </dl>
+  {% if booking_url %}
+    <p><a class="button" href="{{ booking_url }}">{{ 'Book this property'|t }}</a></p>
+  {% endif %}
+</article>

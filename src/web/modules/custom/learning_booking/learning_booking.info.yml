@@ -1,0 +1,9 @@
+name: Learning Booking
+type: module
+description: Provides property booking workflow and events.
+package: Learning
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - drupal:node
+  - drupal:text
+  - learning_property:learning_property

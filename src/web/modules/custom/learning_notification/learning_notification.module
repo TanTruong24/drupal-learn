@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function learning_notification_entity_insert(EntityInterface $entity): void {
+  if ($entity instanceof NodeInterface && $entity->bundle() === 'property') {
+    \Drupal::logger('learning_notification')->notice(
+      'Property @id (@title) was created through the Entity API.',
+      [
+        '@id' => $entity->id(),
+        '@title' => $entity->label(),
+      ],
+    );
+  }
+}

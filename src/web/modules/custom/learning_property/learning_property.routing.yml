@@ -1,0 +1,20 @@
+learning_property.list:
+  path: '/properties'
+  defaults:
+    _controller: '\Drupal\learning_property\Controller\PropertyController::listing'
+    _title: 'Properties'
+  requirements:
+    _permission: 'access property pages'
+
+learning_property.detail:
+  path: '/properties/{node}'
+  defaults:
+    _controller: '\Drupal\learning_property\Controller\PropertyController::detail'
+    _title_callback: '\Drupal\learning_property\Controller\PropertyController::title'
+  requirements:
+    _permission: 'access property pages'
+    node: '\d+'
+  options:
+    parameters:
+      node:
+        type: entity:node
