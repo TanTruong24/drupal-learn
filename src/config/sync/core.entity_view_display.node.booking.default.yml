@@ -1,0 +1,36 @@
+uuid: 5b418a13-b51c-46bd-9982-f5fdd851fcac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.booking.field_booking_notes
+    - field.field.node.booking.field_booking_property
+    - field.field.node.booking.field_booking_status
+    - field.field.node.booking.field_customer_email
+    - field.field.node.booking.field_customer_name
+    - node.type.booking
+  module:
+    - options
+    - user
+id: node.booking.default
+targetEntityType: node
+bundle: booking
+mode: default
+content:
+  field_booking_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_booking_notes: true
+  field_booking_property: true
+  field_customer_email: true
+  field_customer_name: true
