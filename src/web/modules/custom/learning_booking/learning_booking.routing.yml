@@ -10,3 +10,29 @@ learning_booking.form:
     parameters:
       node:
         type: entity:node
+
+learning_booking.approve:
+  path: '/admin/bookings/{node}/approve'
+  defaults:
+    _form: '\Drupal\learning_booking\Form\BookingApproveForm'
+    _title: 'Approve Booking'
+  requirements:
+    _permission: 'manage bookings'
+    node: '\d+'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
+learning_booking.reject:
+    path: '/admin/bookings/{node}/reject'
+    defaults:
+        _form: '\Drupal\learning_booking\Form\BookingRejectForm'
+        _title: 'Reject booking'
+    requirements:
+        _permission: 'manage bookings'
+        node: '\d+'
+    options:
+        parameters:
+            node:
+                type: entity:node
