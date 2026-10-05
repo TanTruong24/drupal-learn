@@ -1,12 +1,21 @@
 services:
-  logger.channel.learning_booking:
-    parent: logger.channel_base
-    arguments: ['learning_booking']
+    logger.channel.learning_booking:
+        parent: logger.channel_base
+        arguments: [ 'learning_booking' ]
 
-  learning_booking.manager:
-    class: Drupal\learning_booking\Service\BookingManager
-    arguments:
-      - '@learning_property.manager'
-      - '@entity_type.manager'
-      - '@event_dispatcher'
-      - '@logger.channel.learning_booking'
+    learning_booking.manager:
+        class: Drupal\learning_booking\Service\BookingManager
+        arguments:
+            - '@learning_property.manager'
+            - '@entity_type.manager'
+            - '@event_dispatcher'
+            - '@logger.channel.learning_booking'
+            - '@current_user'
+
+    learning_booking.booking_owner_access:
+        class: Drupal\learning_booking\Access\BookingOwnerAccessCheck
+        tags:
+            - {
+                name: access_check,
+                applies_to: _booking_owner
+            }

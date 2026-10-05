@@ -10,6 +10,7 @@ use Drupal\learning_property\Service\PropertyManager;
 use Drupal\node\NodeInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+use Drupal\Core\Session\AccountProxyInterface;
 
 /**
  * Creates Booking nodes and dispatches booking events.
@@ -22,6 +23,7 @@ final class BookingManager
         private readonly EntityTypeManagerInterface $entityTypeManager,
         private readonly EventDispatcherInterface   $eventDispatcher,
         private readonly LoggerInterface            $logger,
+        private readonly AccountProxyInterface $currentUser,
     )
     {
     }
@@ -49,6 +51,8 @@ final class BookingManager
 
             //despite have default value "pending", but assign specific "pending" because business invariant
             'field_booking_status' => 'pending',
+
+            'uid' => $this->currentUser->id(),
         ]);
         $booking->save();
 
@@ -146,5 +150,50 @@ final class BookingManager
                 'Expected a booking node.'
             );
         }
+    }
+
+    public function cancel(NodeInterface $booking, int $userId): void
+    {
+        $booking = $this->entityTypeManager
+            ->getStorage('node')
+            ->loadUnchanged($booking->id());
+
+        $this->assertBooking($booking);
+
+        if ((int) $booking->getOwnerId() !== $userId) {
+            throw new \LogicException(
+                'User does not own this booking.'
+            );
+        }
+
+        $status = $booking->get('field_booking_status')->value;
+
+        if (!in_array($status, ['pending', 'approved'], TRUE)) {
+            throw new \LogicException('This booking cannot be cancelled.');
+        }
+
+        $wasApproved = $status === 'approved';
+
+        $booking->set('field_booking_status', 'cancelled');
+
+        if ($wasApproved) {
+            $property = $booking
+                ->get('field_booking_property')
+                ->entity;
+
+            if (!$property instanceof NodeInterface || $property->bundle() !== 'property') {
+                throw new \LogicException('Booking has no valid property.');
+            }
+
+            $property = $this->entityTypeManager
+                ->getStorage('node')
+                ->loadUnchanged($property->id());
+
+            $property->set('field_available', TRUE);
+
+            $property->save();
+        }
+
+        $booking->save();
     }
 }

@@ -1,6 +1,11 @@
 create property booking:
-  title: 'Create property bookings'
-  description: 'Submit the custom property booking form.'
+    title: 'Create property bookings'
+    description: 'Submit the custom property booking form.'
 manage bookings:
-  title: 'Manage bookings'
-  description: 'Approve or reject property bookings.'
+    title: 'Manage bookings'
+    description: 'Approve or reject property bookings.'
+cancel own bookings:
+    title: 'Cancel own bookings'
+    description: 'Cancel bookings owned by the current user.'
+view own bookings:
+    title: 'View own bookings'
