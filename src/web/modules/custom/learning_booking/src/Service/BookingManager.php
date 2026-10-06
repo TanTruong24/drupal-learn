@@ -6,6 +6,9 @@ namespace Drupal\learning_booking\Service;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\learning_booking\Event\BookingCreatedEvent;
+use Drupal\learning_booking\Event\BookingRejectedEvent;
+use Drupal\learning_booking\Event\BookingCancelledEvent;
+use Drupal\learning_booking\Event\BookingApprovedEvent;
 use Drupal\learning_property\Service\PropertyManager;
 use Drupal\node\NodeInterface;
 use Psr\Log\LoggerInterface;
@@ -17,7 +20,6 @@ use Drupal\Core\Session\AccountProxyInterface;
  */
 final class BookingManager
 {
-
     public function __construct(
         private readonly PropertyManager            $propertyManager,
         private readonly EntityTypeManagerInterface $entityTypeManager,
@@ -61,8 +63,7 @@ final class BookingManager
             '@property' => $property->id(),
         ]);
         $this->eventDispatcher->dispatch(
-            new BookingCreatedEvent($booking, $property),
-            BookingCreatedEvent::NAME,
+            new BookingCreatedEvent($booking, $property)
         );
 
         return $booking;
@@ -117,6 +118,10 @@ final class BookingManager
 
         $booking->save();
         $property->save();
+
+        $this->eventDispatcher->dispatch(
+            new BookingApprovedEvent($booking)
+        );
     }
 
     public function reject(NodeInterface $booking): void
@@ -139,6 +144,10 @@ final class BookingManager
         );
 
         $booking->save();
+
+        $this->eventDispatcher->dispatch(
+            new BookingRejectedEvent($booking)
+        );
     }
 
     private function assertBooking(
@@ -195,5 +204,9 @@ final class BookingManager
         }
 
         $booking->save();
+
+        $this->eventDispatcher->dispatch(
+            new BookingCancelledEvent($booking)
+        );
     }
 }
