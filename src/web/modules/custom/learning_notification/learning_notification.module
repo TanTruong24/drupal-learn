@@ -8,14 +8,74 @@ use Drupal\node\NodeInterface;
 /**
  * Implements hook_entity_insert().
  */
-function learning_notification_entity_insert(EntityInterface $entity): void {
-  if ($entity instanceof NodeInterface && $entity->bundle() === 'property') {
-    \Drupal::logger('learning_notification')->notice(
-      'Property @id (@title) was created through the Entity API.',
-      [
-        '@id' => $entity->id(),
-        '@title' => $entity->label(),
-      ],
-    );
-  }
+function learning_notification_entity_insert(EntityInterface $entity): void
+{
+    if ($entity instanceof NodeInterface && $entity->bundle() === 'property') {
+        \Drupal::logger('learning_notification')->notice(
+            'Property @id (@title) was created through the Entity API.',
+            [
+                '@id' => $entity->id(),
+                '@title' => $entity->label(),
+            ],
+        );
+    }
 }
+
+/**
+ * Implements hook_mail().
+ */
+function learning_notification_mail(
+    $key,
+    &$message,
+    $params,
+): void
+{
+    /** @var \Drupal\node\NodeInterface $booking */
+    $booking = $params['booking'];
+
+    switch ($key) {
+
+        case 'booking_approved':
+            $message['subject'] = t(
+                'Your booking has been approved'
+            );
+
+            $message['body'][] = t(
+                'Your booking @booking has been approved.',
+                [
+                    '@booking' => $booking->label(),
+                ]
+            );
+
+            break;
+
+        case 'booking_rejected':
+            $message['subject'] = t(
+                'Your booking has been rejected'
+            );
+
+            $message['body'][] = t(
+                'Your booking @booking has been rejected.',
+                [
+                    '@booking' => $booking->label(),
+                ]
+            );
+
+            break;
+
+        case 'booking_cancelled':
+            $message['subject'] = t(
+                'Your booking has been cancelled'
+            );
+
+            $message['body'][] = t(
+                'Your booking @booking has been cancelled.',
+                [
+                    '@booking' => $booking->label(),
+                ]
+            );
+
+            break;
+    }
+}
+

@@ -10,21 +10,24 @@ use Symfony\Contracts\EventDispatcher\Event;
 /**
  * Dispatched after a Booking node is saved.
  */
-final class BookingCreatedEvent extends Event {
+final class BookingCreatedEvent extends Event
+{
 
-  public const NAME = 'learning_booking.created';
+    public function __construct(
+        private readonly NodeInterface $booking,
+        private readonly NodeInterface $property,
+    )
+    {
+    }
 
-  public function __construct(
-    private readonly NodeInterface $booking,
-    private readonly NodeInterface $property,
-  ) {}
+    public function getBooking(): NodeInterface
+    {
+        return $this->booking;
+    }
 
-  public function getBooking(): NodeInterface {
-    return $this->booking;
-  }
-
-  public function getProperty(): NodeInterface {
-    return $this->property;
-  }
+    public function getProperty(): NodeInterface
+    {
+        return $this->property;
+    }
 
 }

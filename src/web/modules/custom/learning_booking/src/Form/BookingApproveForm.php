@@ -63,7 +63,7 @@ class BookingApproveForm extends ConfirmFormBase
 
     public function getCancelUrl(): Url
     {
-        return Url::fromRoute('view.bookings.page_1');
+        return Url::fromRoute('view.booking.page_1');
     }
 
     public function submitForm(
@@ -79,7 +79,7 @@ class BookingApproveForm extends ConfirmFormBase
         );
 
         $form_state->setRedirect(
-            'view.bookings.page_1'
+            'view.booking.page_1'
         );
     }
 }
