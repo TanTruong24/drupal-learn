@@ -8,5 +8,13 @@ services:
         class: Drupal\learning_notification\EventSubscriber\BookingEventSubscriber
         arguments:
             - '@logger.channel.learning_notification'
+            - '@learning_notification.notification'
         tags:
             - { name: event_subscriber }
+
+    learning_notification.notification:
+        class: Drupal\learning_notification\Service\BookingNotificationService
+        arguments:
+            - '@plugin.manager.mail'
+            - '@language_manager'
+            - '@logger.channel.learning_notification'

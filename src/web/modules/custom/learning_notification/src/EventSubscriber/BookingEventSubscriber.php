@@ -10,6 +10,7 @@ use Drupal\learning_booking\Event\BookingCancelledEvent;
 use Drupal\learning_booking\Event\BookingRejectedEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Drupal\learning_notification\Service\BookingNotificationService;
 
 /**
  * Logs booking creation events.
@@ -19,6 +20,7 @@ final class BookingEventSubscriber implements EventSubscriberInterface
 
     public function __construct(
         private readonly LoggerInterface $logger,
+        private readonly BookingNotificationService $notificationService,
     )
     {
     }
@@ -53,28 +55,36 @@ final class BookingEventSubscriber implements EventSubscriberInterface
                 '@id' => $booking->id()
             ]
         );
+
+        $this->notificationService->sendApproved($booking);
     }
 
-    public function onRejected(BookingRejectedEvent $event): void {
+    public function onRejected(BookingRejectedEvent $event): void
+    {
         $booking = $event->getBooking();
 
         $this->logger->info(
             'Booking @id rejected.',
             [
                 '@id' => $booking->id(),
-            ]
+            ],
         );
+
+        $this->notificationService->sendRejected($booking);
     }
 
-    public function onCancelled(BookingCancelledEvent $event): void {
+    public function onCancelled(BookingCancelledEvent $event): void
+    {
         $booking = $event->getBooking();
 
         $this->logger->info(
             'Booking @id cancelled.',
             [
                 '@id' => $booking->id(),
-            ]
+            ],
         );
+
+        $this->notificationService->sendCancelled($booking);
     }
 
 }
